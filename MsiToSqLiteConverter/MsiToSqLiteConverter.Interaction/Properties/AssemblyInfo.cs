@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MsiToSqLiteConverter.Converters")]
+[assembly: AssemblyTitle("MsiToSqLiteConverter.Interaction")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MsiToSqLiteConverter.Converters")]
+[assembly: AssemblyProduct("MsiToSqLiteConverter.Interaction")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("711a6986-0cd6-499c-b98c-e7e32ceb4c00")]
+[assembly: Guid("4135f546-18e3-4e92-9dbd-ec4c3fd5e6e6")]
 
 // Version information for an assembly consists of the following four values:
 //
