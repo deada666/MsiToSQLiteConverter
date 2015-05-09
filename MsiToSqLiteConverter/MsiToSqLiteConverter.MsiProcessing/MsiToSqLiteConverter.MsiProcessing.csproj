@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\DtfIdtManager.cs" />
+    <Compile Include="Domain\IIdtManager.cs" />
     <Compile Include="IMsiParser.cs" />
     <Compile Include="IMsiProcessingFactory.cs" />
     <Compile Include="IMsiWriter.cs" />
