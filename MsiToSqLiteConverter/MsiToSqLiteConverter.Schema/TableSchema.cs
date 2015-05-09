@@ -6,7 +6,7 @@ namespace MsiToSqLiteConverter.Schema
     public class TableSchema
     {
         [Required]
-        public string ColumnName { get; set; }
+        public string TableName { get; set; }
 
         [Required]
         public IDictionary<string, ColumnInfo> Columns { get; set; }

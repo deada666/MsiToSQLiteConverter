@@ -1,0 +1,100 @@
+Dialog_	Control_	Event	Argument	Condition	Ordering
+s72	s50	s50	s255	S255	I2
+ControlEvent	Dialog_	Control_	Event	Argument	Condition
+AdminInstallBrowse	Cancel	EndDialog	Return	1	2
+AdminInstallBrowse	Cancel	Reset	0	1	1
+AdminInstallBrowse	NewFolder	DirectoryListNew	0	1	
+AdminInstallBrowse	OK	EndDialog	Return	1	2
+AdminInstallBrowse	OK	SetTargetPath	TARGETDIR	1	1
+AdminInstallBrowse	Up	DirectoryListUp	0	1	
+Admin_Install_Point	Browse	SpawnDialog	AdminInstallBrowse	1	
+Admin_Install_Point	Cancel	SpawnDialog	Cancel	1	
+Admin_Install_Point	Next	NewDialog	Admin_Verify_Ready	1	2
+Admin_Install_Point	Next	SetTargetPath	TARGETDIR	1	1
+Admin_Verify_Ready	Back	NewDialog	Admin_Install_Point	1	
+Admin_Verify_Ready	Cancel	SpawnDialog	Cancel	1	
+Admin_Verify_Ready	InstallNow	EndDialog	Return	1	
+Browse	Cancel	EndDialog	Return	NOT BaseBrowse	2
+Browse	Cancel	Reset	0	1	1
+Browse	Cancel	SpawnDialog	Cancel	BaseBrowse	2
+Browse	NewFolder	DirectoryListNew	0	1	
+Browse	OK	EndDialog	Return	1	2
+Browse	OK	SetTargetPath	[_BrowseProperty]	1	1
+Browse	Up	DirectoryListUp	0	1	
+Cancel	No	EndDialog	Return	1	
+Cancel	Yes	DoAction	WiseCleanup	1	9
+Cancel	Yes	EndDialog	Exit	1	10
+DirectorySelectionError	OK_Button	EndDialog	Return	1	29
+DiskCost	OK	EndDialog	Return	1	
+ErrorDialog	A	EndDialog	ErrorAbort	1	
+ErrorDialog	C	EndDialog	ErrorCancel	1	
+ErrorDialog	I	EndDialog	ErrorIgnore	1	
+ErrorDialog	N	EndDialog	ErrorNo	1	
+ErrorDialog	O	EndDialog	ErrorOk	1	
+ErrorDialog	R	EndDialog	ErrorRetry	1	
+ErrorDialog	Y	EndDialog	ErrorYes	1	
+Exit_Dialog	OK	DoAction	StartSteamAsync	GAMENAME = "Steam" AND NOT WiseUninstall	36
+Exit_Dialog	OK	EndDialog	Return	1	51
+Fatal_Error	OK	DoAction	WiseCleanup	1	9
+Fatal_Error	OK	EndDialog	Exit	1	10
+FilesInUse	Exit	EndDialog	Exit	1	
+FilesInUse	Ignore	EndDialog	Ignore	1	
+FilesInUse	Retry	EndDialog	Retry	1	
+Language	Cancel	SpawnDialog	Cancel	1	13
+Language	Next	NewDialog	Single_Feature_Destination	1	1
+Language	Previous	NewDialog	Rate	1	10
+License_Dialog	Cancel	SpawnDialog	Cancel	1	
+License_Dialog	License	Reset	0	1	43
+License_Dialog	Next	NewDialog	Rate	GUIMODE="normal"	39
+License_Dialog	Next	NewDialog	Single_Feature_Destination	GUIMODE<>"normal"	64
+License_Dialog	Previous	NewDialog	Welcome_Dialog	1	2
+Maintenance_Welcome_Dialog	Cancel	SpawnDialog	Cancel	1	
+Maintenance_Welcome_Dialog	Next	NewDialog	Start_Installation_Dialog	MaintenanceMode = "Repair"	
+Maintenance_Welcome_Dialog	Next	NewDialog	Verify_Remove_All	MaintenanceMode = "Remove"	
+Maintenance_Welcome_Dialog	Next	ReinstallMode	amus	MaintenanceMode = "Repair"	21
+OutOfDisk	OK	EndDialog	Return	1	
+Patch_Dialog	Cancel	SpawnDialog	Cancel	1	12
+Patch_Dialog	Next	EndDialog	Return	1	10
+Progress_Dialog	Cancel	SpawnDialog	Cancel	1	
+Rate	Cancel	SpawnDialog	Cancel	1	13
+Rate	Next	EndDialog	Return	NOT RESUME AND ProductID AND Preselected AND OutOfDiskSpace <> 1	11
+Rate	Next	EndDialog	Return	RESUME AND OutOfDiskSpace <> 1	11
+Rate	Next	NewDialog	Language	NOT RESUME AND ProductID AND NOT Preselected AND SHOWLANGUAGES=1	41
+Rate	Next	NewDialog	Single_Feature_Destination	NOT RESUME AND ProductID AND NOT Preselected AND SHOWLANGUAGES=0	49
+Rate	Previous	NewDialog	License_Dialog	1	40
+Resume_Install_Dialog	Cancel	SpawnDialog	Cancel	1	
+Resume_Install_Dialog	InstallNow	EndDialog	Return	OutOfDiskSpace <> 1	1
+Resume_Install_Dialog	InstallNow	SpawnDialog	OutOfDisk	OutOfDiskSpace = 1	0
+Setup_Dialog	Cancel	SpawnDialog	Cancel	1	
+Single_Feature_Destination	Cancel	SpawnDialog	Cancel	1	13
+Single_Feature_Destination	Next	DoAction	CheckInstallPath	1	10
+Single_Feature_Destination	Next	EndDialog	Return	INSTALLPATH_FAILED = "0" and OutOfDiskSpace <> 1 AND NOT Installed	48
+Single_Feature_Destination	Next	SpawnDialog	DirectorySelectionError	INSTALLPATH_FAILED <>"0"	46
+Single_Feature_Destination	Next	SpawnDialog	OutOfDisk	OutOfDiskSpace = 1	47
+Single_Feature_Destination	Next	SpawnWaitDialog	WaitForCosting	CostingComplete = 1	11
+Single_Feature_Destination	Previous	NewDialog	Language	SHOWLANGUAGES=1	24
+Single_Feature_Destination	Previous	NewDialog	Rate	SHOWLANGUAGES=0	50
+Single_Feature_Destination	PushButton44	SpawnDialog	Browse	1	19
+Single_Feature_Destination	PushButton44	[_BrowseProperty]	INSTALLDIR	1	18
+Start_Installation_Dialog	Cancel	SpawnDialog	Cancel	1	
+Start_Installation_Dialog	InstallNow	EndDialog	Return	OutOfDiskSpace <> 1	22
+Start_Installation_Dialog	InstallNow	Reinstall	ALL	Installed AND MaintenanceMode="Repair"	3
+Start_Installation_Dialog	InstallNow	SpawnDialog	OutOfDisk	OutOfDiskSpace = 1	2
+Start_Installation_Dialog	InstallNow	SpawnWaitDialog	WaitForCosting	CostingComplete = 1	1
+Start_Installation_Dialog	Previous	NewDialog	Maintenance_Welcome_Dialog	Installed AND MaintenanceMode = "Repair"	0
+Steam_Running_Dialog	Cancel	DoAction	WiseCleanup	1	54
+Steam_Running_Dialog	Cancel	EndDialog	Exit	1	55
+Top_Graphic_Dialog1	Cancel	SpawnDialog	Cancel	1	13
+Top_Graphic_Dialog1	Next	EndDialog	Return	1	1
+User_Exit	OK	EndDialog	Exit	1	
+Verify_Remove_All	Cancel	SpawnDialog	Cancel	1	
+Verify_Remove_All	Previous	NewDialog	Maintenance_Welcome_Dialog	1	
+Verify_Remove_All	RemoveNow	EndDialog	Return	OutOfDiskSpace <> 1	60
+Verify_Remove_All	RemoveNow	SpawnDialog	OutOfDisk	OutOfDiskSpace = 1	58
+Verify_Remove_All	RemoveNow	[REMOVE]	ALL	1	63
+Verify_Remove_All	RemoveNow	[WiseUninstall]	1	1	16
+WaitForCosting	Cancel	DoAction	WiseCleanup	1	9
+WaitForCosting	Cancel	EndDialog	Exit	1	10
+Welcome_Dialog	Cancel	SpawnDialog	Cancel	1	
+Welcome_Dialog	Next	NewDialog	License_Dialog	1	23
+Welcome_Dialog	Next	[Accept]	No	1	0
