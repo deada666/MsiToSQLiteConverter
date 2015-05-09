@@ -1,5 +1,5 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace MsiToSqLiteConverter.Schema
 {
     public class ColumnInfo
@@ -10,5 +10,7 @@ namespace MsiToSqLiteConverter.Schema
         public ColumnType ColumnType { get; set; }
 
         public bool IsKeyColumn { get; set; }
+
+        public bool IsNullable { get; set; }
     }
 }
