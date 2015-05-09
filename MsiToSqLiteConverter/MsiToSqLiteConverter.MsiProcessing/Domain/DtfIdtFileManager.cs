@@ -6,7 +6,7 @@
     /// <summary>
     /// The IDT manager.
     /// </summary>
-    public class DtfIdtManager : IIdtManager
+    public class DtfIdtFileManager : IIdtFileManager
     {
         /// <summary>
         /// The current package

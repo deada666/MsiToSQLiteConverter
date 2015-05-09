@@ -12,5 +12,7 @@ namespace MsiToSqLiteConverter.Schema
         public bool IsKeyColumn { get; set; }
 
         public bool IsNullable { get; set; }
+
+        public int Size { get; set; }
     }
 }

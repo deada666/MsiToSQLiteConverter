@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsiToSqLiteConverter.Schema
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsiToSqLiteConverter.Interaction", "MsiToSqLiteConverter.Interaction\MsiToSqLiteConverter.Interaction.csproj", "{AD2B6ED4-682E-4180-AFF3-D5D6C92D2BAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsiToSqLiteConverter.Tests", "MsiToSqLiteConverter.Tests\MsiToSqLiteConverter.Tests.csproj", "{477FA513-1209-4DE0-BC41-4AAB4971C0A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{AD2B6ED4-682E-4180-AFF3-D5D6C92D2BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD2B6ED4-682E-4180-AFF3-D5D6C92D2BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD2B6ED4-682E-4180-AFF3-D5D6C92D2BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477FA513-1209-4DE0-BC41-4AAB4971C0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477FA513-1209-4DE0-BC41-4AAB4971C0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477FA513-1209-4DE0-BC41-4AAB4971C0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477FA513-1209-4DE0-BC41-4AAB4971C0A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

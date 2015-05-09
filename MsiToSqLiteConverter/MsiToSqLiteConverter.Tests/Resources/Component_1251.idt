@@ -1,0 +1,9 @@
+Component	ComponentId	Directory_	Attributes	Condition	KeyPath
+s72	S38	s72	i2	S255	S72
+1251	Component	Component
+RemoveRegistry	{D859812D-C498-44C0-B59E-4BCB2B03DF96}	TARGETDIR	0		
+SteamBase	{A8CEB5C7-7070-4FFB-BFA4-86C6996C9900}	INSTALLDIR	0		Steam.exe1
+SteamPublic	{83726599-1157-4E75-B194-92CD01765C77}	Public	0		steam_tray.ico
+SteamService.exe	{4CE61121-F736-4ACF-B245-500005538DCE}	bin	0		SteamService.exe
+Support.url	{17D4903C-068A-47A0-9753-EDF4909D42FF}	INSTALLDIR	0		Support.url‰‡
+registry	{1E338360-1B27-424D-A383-A003A0F5096C}	TARGETDIR	4		registry419
