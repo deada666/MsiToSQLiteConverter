@@ -8,7 +8,7 @@
 
         void Disconnect(bool isDispose);
 
-        void ExtactTable(string tableName, string filePath);
+        void ExtractTable(string tableName, string filePath);
 
         void ImportTable(string filePath);
 

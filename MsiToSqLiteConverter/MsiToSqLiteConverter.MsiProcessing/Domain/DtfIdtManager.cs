@@ -85,7 +85,6 @@
         public void Dispose()
         {
             this.Disconnect(true);
-
         }
 
 
@@ -110,4 +109,5 @@
                 throw new ApplicationException("Database opened in readonly mode, while read/write mode expected.");
             }
         }
+    }
 }
