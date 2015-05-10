@@ -30,7 +30,22 @@
         /// <param name="tableProperties">The table properties.</param>
         public MsiTableSchema(string columnNames, string columnDefinitions, string tableProperties)
         {
-            this.Columns = new ConcurrentDictionary<string, ColumnInfo>();
+            if (string.IsNullOrWhiteSpace(columnNames))
+            {
+                throw new SchemaParseException("Columns information cannot be empty. Schema cannot be created.");
+            }
+
+            if (string.IsNullOrWhiteSpace(columnDefinitions))
+            {
+                throw new SchemaParseException("Columns definition information cannot be empty. Schema cannot be created.");
+            }
+
+            if (string.IsNullOrWhiteSpace(tableProperties))
+            {
+                throw new SchemaParseException("Table properties information cannot be empty. Schema cannot be created.");
+            }
+
+            this.Columns = new Dictionary<string, ColumnInfo>();
             this.CreateColumns(columnNames);
             this.FillColumnsData(columnDefinitions);
             this.SetSchemaProperties(tableProperties);

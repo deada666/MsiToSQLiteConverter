@@ -60,7 +60,7 @@
                 }
             }
 
-            var result = new MsiTableSchema(columnNames, columnDefinitions, tableProperties);
+            var result = new MsiTableSchema(columnNames, columnDefinitions, tableProperties) { IdtFilePath = idtFilePath };
             return result;
         }
 
