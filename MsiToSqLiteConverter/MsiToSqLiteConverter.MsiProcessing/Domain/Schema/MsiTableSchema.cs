@@ -1,8 +1,6 @@
-﻿namespace MsiToSqLiteConverter.MsiProcessing.Domain
+﻿namespace MsiToSqLiteConverter.MsiProcessing.Domain.Schema
 {
     using System;
-    using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -14,14 +12,6 @@
     /// </summary>
     public class MsiTableSchema : TableSchema
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MsiTableSchema"/> class.
-        /// </summary>
-        public MsiTableSchema()
-        {
-            
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MsiTableSchema"/> class.
         /// </summary>
@@ -49,6 +39,7 @@
             this.CreateColumns(columnNames);
             this.FillColumnsData(columnDefinitions);
             this.SetSchemaProperties(tableProperties);
+            this.NotNullableColumnsCount = this.Columns.Where(item => !item.Value.IsNullable).ToArray().Length;
         }
 
         /// <summary>
@@ -58,6 +49,22 @@
         /// The IDT file path.
         /// </value>
         public string IdtFilePath { get; set; }
+
+        /// <summary>
+        /// Gets the key columns count.
+        /// </summary>
+        /// <value>
+        /// The key columns count.
+        /// </value>
+        public int KeyColumnsCount { get; private set; }
+
+        /// <summary>
+        /// Gets the not nullable columns count.
+        /// </summary>
+        /// <value>
+        /// The not nullable columns count.
+        /// </value>
+        public int NotNullableColumnsCount { get; private set; }
 
         /// <summary>
         /// Creates the columns.
@@ -125,6 +132,7 @@
             foreach (var property in splitedProperties)
             {
                 this.Columns[property].IsKeyColumn = true;
+                this.KeyColumnsCount++;
             }
         }
 
@@ -135,18 +143,17 @@
         /// <param name="columnDefinition">The column definition.</param>
         private void GetColumnType(ColumnInfo info, string columnDefinition)
         {
-            var preparedString = columnDefinition.ToLower();
-            if (preparedString.Length < 2)
+            if (columnDefinition.Length < 2)
             {
                 throw new SchemaParseException("Schema definition has unsupported format.");    
             }
 
-            var firstLetter = preparedString[0];
-            var seccondLetter = preparedString[1];
+            var firstLetter = columnDefinition[0];
+            var seccondLetter = columnDefinition[1];
 
             info.IsNullable = char.IsUpper(firstLetter);
 
-            switch (firstLetter)
+            switch (char.ToLower(firstLetter))
             {
                 case 's':
                     info.ColumnType = ColumnType.Text;

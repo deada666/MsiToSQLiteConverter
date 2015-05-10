@@ -46,7 +46,8 @@
     <Compile Include="Domain\DtfIdtFileManager.cs" />
     <Compile Include="Domain\IdtReader.cs" />
     <Compile Include="Domain\IIdtFileManager.cs" />
-    <Compile Include="Domain\MsiTableSchema.cs" />
+    <Compile Include="Domain\Schema\MsiRowData.cs" />
+    <Compile Include="Domain\Schema\MsiTableSchema.cs" />
     <Compile Include="Exceptions\SchemaParseException.cs" />
     <Compile Include="Exceptions\IdtParseException.cs" />
     <Compile Include="IMsiParser.cs" />
